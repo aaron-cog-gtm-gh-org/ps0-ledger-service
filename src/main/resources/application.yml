@@ -1,0 +1,4 @@
+acme:
+  core-banking:
+    base-url: https://core-banking.internal.acmebank.example
+    timeout: 5s
