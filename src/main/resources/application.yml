@@ -1,3 +1,6 @@
+server:
+  port: 8092
+
 acme:
   core-banking:
     base-url: https://core-banking.internal.acmebank.example
