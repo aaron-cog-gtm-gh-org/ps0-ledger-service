@@ -13,7 +13,7 @@ import java.io.UncheckedIOException;
 import java.math.BigDecimal;
 import java.net.ServerSocket;
 import java.time.Duration;
-import org.apache.http.conn.HttpHostConnectException;
+import java.net.ConnectException;
 import org.junit.jupiter.api.Test;
 
 class LedgerBalanceServiceConnectionRefusedTest {
@@ -43,7 +43,7 @@ class LedgerBalanceServiceConnectionRefusedTest {
 
             assertThatThrownBy(() -> service.currentBalance("ACC-100234"))
                     .isInstanceOf(UncheckedIOException.class)
-                    .hasCauseInstanceOf(HttpHostConnectException.class);
+                    .hasCauseInstanceOf(ConnectException.class);
         }
     }
 
