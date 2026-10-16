@@ -11,9 +11,9 @@ import com.acme.ledger.model.AccountBalance;
 import com.acme.ledger.service.LedgerBalanceService;
 import java.io.UncheckedIOException;
 import java.math.BigDecimal;
+import java.net.ConnectException;
 import java.net.ServerSocket;
 import java.time.Duration;
-import org.apache.http.conn.HttpHostConnectException;
 import org.junit.jupiter.api.Test;
 
 class LedgerBalanceServiceConnectionRefusedTest {
@@ -43,7 +43,7 @@ class LedgerBalanceServiceConnectionRefusedTest {
 
             assertThatThrownBy(() -> service.currentBalance("ACC-100234"))
                     .isInstanceOf(UncheckedIOException.class)
-                    .hasCauseInstanceOf(HttpHostConnectException.class);
+                    .hasCauseInstanceOf(ConnectException.class);
         }
     }
 
