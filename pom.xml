@@ -14,7 +14,7 @@
   <description>Core banking balance access for the Acme Bank ledger</description>
   <properties>
     <java.version>17</java.version>
-    <acme-commons-http.version>1.4.0</acme-commons-http.version>
+    <acme-commons-http.version>1.5.0</acme-commons-http.version>
   </properties>
   <dependencies>
     <dependency>

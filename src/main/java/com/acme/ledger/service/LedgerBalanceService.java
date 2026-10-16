@@ -4,7 +4,7 @@ import com.acme.ledger.cache.BalanceCache;
 import com.acme.ledger.client.BalanceClient;
 import com.acme.ledger.model.AccountBalance;
 import java.io.UncheckedIOException;
-import org.apache.http.conn.HttpHostConnectException;
+import java.net.ConnectException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class LedgerBalanceService {
             balanceCache.put(balance);
             return balance;
         } catch (UncheckedIOException e) {
-            if (e.getCause() instanceof HttpHostConnectException) {
+            if (e.getCause() instanceof ConnectException) {
                 AccountBalance cached = balanceCache.lastKnown(accountId);
                 if (cached != null) {
                     log.warn("Core banking unreachable, serving last known balance for account {}", accountId);
